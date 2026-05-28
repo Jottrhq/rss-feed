@@ -1,0 +1,37 @@
+{
+  "name": "rss-feed",
+  "displayName": "RSS Feed Reader",
+  "version": "0.1.0",
+  "description": "Adds the RSS feed reader tab.",
+  "entry": "index.py",
+  "permissions": [
+    "network",
+    "ui.panel",
+    "commands"
+  ],
+  "contributes": {
+    "uiPanels": [
+      {
+        "id": "rss-feed.reader",
+        "title": "RSS Reader",
+        "type": "python"
+      }
+    ],
+    "commands": [
+      {
+        "id": "rss-feed.open",
+        "title": "New RSS Tab",
+        "panel": "rss-feed.reader"
+      }
+    ],
+    "toolbarActions": [
+      {
+        "id": "rss-feed.toolbar",
+        "title": "RSS",
+        "tooltip": "Open RSS Reader",
+        "icon": "globe",
+        "panel": "rss-feed.reader"
+      }
+    ]
+  }
+}
