@@ -2,8 +2,16 @@
   "packages": {
     ".": {
       "release-type": "simple",
-      "package-name": "rss-feed"
+      "package-name": "rss-feed",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "plugin.json",
+          "jsonpath": "$.version"
+        }
+      ]
     }
   },
-  "include-component-in-tag": true
+  "include-component-in-tag": true,
+  "tag-separator": "-"
 }
