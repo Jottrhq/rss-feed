@@ -39,6 +39,28 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ needs.release-please.outputs.tag_name }}
+      - name: Normalize plugin version from release tag
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ needs.release-please.outputs.tag_name }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          tag = os.environ['RELEASE_TAG']
+          match = re.search(r'(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:[-+][0-9A-Za-z.-]+)?', tag)
+          if not match:
+              raise SystemExit(f'Could not determine plugin version from release tag: {tag}')
+          version = match.group(0)
+          path = Path('plugin.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          data['version'] = version
+          path.write_text(json.dumps(data, indent=2) + '\n', encoding='utf-8')
+          print(f"Normalized plugin.json version to {version}")
+          PY
       - name: Read plugin metadata
         id: metadata
         shell: bash
