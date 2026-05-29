@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.1](https://github.com/Jottrhq/rss-feed-plugin/compare/rss-feed-v0.3.0...rss-feed-v0.3.1) (2026-05-29)
+
+
+### Bug Fixes
+
+* derive plugin package version from release tag ([962d458](https://github.com/Jottrhq/rss-feed-plugin/commit/962d458521ff345c72381e895c5ed64dcff1b9a2))
+* derive plugin package version from release tag ([1df6bcb](https://github.com/Jottrhq/rss-feed-plugin/commit/1df6bcbc6b463774bc54d53b5f44d2880e505e94))
+
 ## [0.3.0](https://github.com/Jottrhq/rss-feed-plugin/compare/rss-feed-v0.2.0...rss-feed-v0.3.0) (2026-05-28)
 
 
